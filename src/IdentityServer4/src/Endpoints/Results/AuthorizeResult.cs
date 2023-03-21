@@ -169,8 +169,8 @@ namespace IdentityServer4.Endpoints.Results
             url = HtmlEncoder.Default.Encode(url);
             html = html.Replace("{uri}", url);
             html = html.Replace("{body}", Response.ToNameValueCollection().ToFormPost());
-            html = html.Replace("{extraHeadHtmlContent}", _options.FormPostFormPostResponseMode.ExtraHeadHtmlContent ?? string.Empty);
-            html = html.Replace("{extraBodyHtmlContent}", _options.FormPostFormPostResponseMode.ExtraBodyHtmlContent ?? string.Empty);
+            html = html.Replace("{extraHeadHtmlContent}", _options.FormPostResponseMode.ExtraHeadHtmlContent ?? string.Empty);
+            html = html.Replace("{extraBodyHtmlContent}", _options.FormPostResponseMode.ExtraBodyHtmlContent ?? string.Empty);
 
             return html;
         }

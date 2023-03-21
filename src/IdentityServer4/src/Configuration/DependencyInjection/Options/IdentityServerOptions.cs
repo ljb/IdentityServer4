@@ -139,6 +139,6 @@ namespace IdentityServer4.Configuration
         /// <summary>
         /// Gets or sets the form response mode options
         /// </summary>
-        public FormPostResponseModeOptions FormPostFormPostResponseMode { get; set; } = new FormPostResponseModeOptions();
+        public FormPostResponseModeOptions FormPostResponseMode { get; set; } = new FormPostResponseModeOptions();
     }
 }
