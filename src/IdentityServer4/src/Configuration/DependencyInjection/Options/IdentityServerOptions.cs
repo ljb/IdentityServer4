@@ -135,5 +135,10 @@ namespace IdentityServer4.Configuration
         /// Gets or sets the mutual TLS options.
         /// </summary>
         public MutualTlsOptions MutualTls { get; set; } = new MutualTlsOptions();
+
+        /// <summary>
+        /// Gets or sets the form response response mode options
+        /// </summary>
+        public FormPostResponseModeOptions FormPostFormPostResponseMode { get; set; } = new FormPostResponseModeOptions();
     }
 }

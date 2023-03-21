@@ -159,7 +159,7 @@ namespace IdentityServer4.Endpoints.Results
             return uri;
         }
 
-        private const string FormPostHtml = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge' /><base target='_self'/></head><body><form method='post' action='{uri}'>{body}<noscript><button>Click to continue</button></noscript></form><script>window.addEventListener('load', function(){document.forms[0].submit();});</script></body></html>";
+        private const string FormPostHtml = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge' /><base target='_self'/>{extraHeadHtmlContent}</head><body>{extraBodyHtmlContent}<form method='post' action='{uri}'>{body}<noscript><button>Click to continue</button></noscript></form><script>window.addEventListener('load', function(){document.forms[0].submit();});</script></body></html>";
 
         private string GetFormPostHtml()
         {
@@ -169,6 +169,8 @@ namespace IdentityServer4.Endpoints.Results
             url = HtmlEncoder.Default.Encode(url);
             html = html.Replace("{uri}", url);
             html = html.Replace("{body}", Response.ToNameValueCollection().ToFormPost());
+            html = html.Replace("{extraHeadHtmlContent}", _options.FormPostFormPostResponseMode.ExtraHeadHtmlContent ?? string.Empty);
+            html = html.Replace("{extraBodyHtmlContent}", _options.FormPostFormPostResponseMode.ExtraBodyHtmlContent ?? string.Empty);
 
             return html;
         }
