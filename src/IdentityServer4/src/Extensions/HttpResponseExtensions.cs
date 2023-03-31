@@ -91,7 +91,7 @@ namespace IdentityServer4.Extensions
         public static void AddScriptCspHeaders(this HttpResponse response, CspOptions options, string hash)
         {
             var csp1part = options.Level == CspLevel.One ? "'unsafe-inline' " : string.Empty;
-            var cspHeader = $"default-src 'none'; script-src {csp1part}'{hash}'; style-src 'self'";
+            var cspHeader = $"default-src 'none'; script-src {csp1part}'{hash}'; style-src 'self'; img-src 'self'";
 
             AddCspHeaders(response.Headers, options, cspHeader);
         }
